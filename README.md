@@ -2,6 +2,12 @@
 
 A comprehensive User Control Panel (UCP) for managing serious game servers with role-based access control.
 
+## 📚 Documentation
+
+- **[Quick Start Guide](QUICKSTART.md)** - Get up and running in 5 minutes
+- **[Deployment Guide](DEPLOYMENT.md)** - Production deployment instructions
+- **[Security Documentation](SECURITY.md)** - Security analysis and best practices
+
 ## Features
 
 ### Backend (Spring Boot + PostgreSQL)
