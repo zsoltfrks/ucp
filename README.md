@@ -1,6 +1,6 @@
-# UCP - Serious Game Server Dashboard
+# UCP - Dashboard
 
-A comprehensive User Control Panel (UCP) for managing serious game servers with role-based access control.
+A comprehensive User Control Panel (UCP) for managing a game server with role-based access control.
 
 ## 📚 Documentation
 
