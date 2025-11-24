@@ -56,8 +56,13 @@ export default function AdminPage() {
 
   const handleToggleUserActive = async (userId: number) => {
     try {
-      await apiClient.toggleUserActive(userId);
-      loadAdminData();
+      const updatedUser = await apiClient.toggleUserActive(userId);
+      // Update local state instead of reloading all data
+      setUsers(prevUsers => 
+        prevUsers.map(user => 
+          user.id === userId ? updatedUser : user
+        )
+      );
     } catch (error) {
       console.error('Failed to toggle user active status:', error);
     }

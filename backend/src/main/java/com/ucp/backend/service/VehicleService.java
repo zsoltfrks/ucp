@@ -20,7 +20,7 @@ public class VehicleService {
     private final PlayerProfileRepository playerProfileRepository;
     
     public List<VehicleDTO> getAllVehicles() {
-        return vehicleRepository.findAll().stream()
+        return vehicleRepository.findAllWithOwnerAndUser().stream()
                 .map(this::convertToDTO)
                 .collect(Collectors.toList());
     }
@@ -32,7 +32,7 @@ public class VehicleService {
     }
     
     public List<VehicleDTO> getVehiclesByOwnerId(Long ownerId) {
-        return vehicleRepository.findByOwnerId(ownerId).stream()
+        return vehicleRepository.findByOwnerIdWithUser(ownerId).stream()
                 .map(this::convertToDTO)
                 .collect(Collectors.toList());
     }

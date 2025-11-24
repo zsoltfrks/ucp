@@ -18,19 +18,19 @@ public class PlayerProfileService {
     private final PlayerProfileRepository playerProfileRepository;
     
     public List<PlayerProfileDTO> getAllProfiles() {
-        return playerProfileRepository.findAll().stream()
+        return playerProfileRepository.findAllWithUserAndAssets().stream()
                 .map(this::convertToDTO)
                 .collect(Collectors.toList());
     }
     
     public PlayerProfileDTO getProfileById(Long id) {
-        PlayerProfile profile = playerProfileRepository.findById(id)
+        PlayerProfile profile = playerProfileRepository.findByIdWithUserAndAssets(id)
                 .orElseThrow(() -> new RuntimeException("Profile not found"));
         return convertToDTO(profile);
     }
     
     public PlayerProfileDTO getProfileByUserId(Long userId) {
-        PlayerProfile profile = playerProfileRepository.findByUserId(userId)
+        PlayerProfile profile = playerProfileRepository.findByUserIdWithAssets(userId)
                 .orElseThrow(() -> new RuntimeException("Profile not found"));
         return convertToDTO(profile);
     }
