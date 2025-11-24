@@ -217,6 +217,12 @@ public Page<UserDTO> getAllUsers(Pageable pageable) {
 }
 ```
 
+**Important Note on DISTINCT with JOIN FETCH**: 
+The current implementation uses `DISTINCT` with multiple `LEFT JOIN FETCH` operations. While this works well for small to medium datasets (up to ~10,000 records), it can cause Hibernate to load the full result set into memory before applying DISTINCT. For very large datasets, consider:
+- Implementing pagination at the repository level
+- Using separate queries with `@EntityGraph` instead of DISTINCT
+- Adding `hibernate.query.in_clause_parameter_padding=true` for better performance
+
 ### 5. API Response Compression
 Enable gzip compression in Spring Boot:
 ```properties

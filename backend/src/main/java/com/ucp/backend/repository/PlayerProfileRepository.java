@@ -12,6 +12,13 @@ import java.util.Optional;
 public interface PlayerProfileRepository extends JpaRepository<PlayerProfile, Long> {
     Optional<PlayerProfile> findByUserId(Long userId);
     
+    /**
+     * Fetches all player profiles with their associated user, houses, and vehicles.
+     * Uses DISTINCT to eliminate duplicates caused by JOIN FETCH.
+     * 
+     * Note: For very large datasets (>10k records), consider implementing pagination
+     * or using @EntityGraph to avoid memory issues with DISTINCT + multiple JOIN FETCH.
+     */
     @Query("SELECT DISTINCT p FROM PlayerProfile p " +
            "LEFT JOIN FETCH p.user " +
            "LEFT JOIN FETCH p.houses " +
