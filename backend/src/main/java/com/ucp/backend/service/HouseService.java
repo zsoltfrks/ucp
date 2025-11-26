@@ -20,7 +20,7 @@ public class HouseService {
     private final PlayerProfileRepository playerProfileRepository;
     
     public List<HouseDTO> getAllHouses() {
-        return houseRepository.findAll().stream()
+        return houseRepository.findAllWithOwnerAndUser().stream()
                 .map(this::convertToDTO)
                 .collect(Collectors.toList());
     }
@@ -32,7 +32,7 @@ public class HouseService {
     }
     
     public List<HouseDTO> getHousesByOwnerId(Long ownerId) {
-        return houseRepository.findByOwnerId(ownerId).stream()
+        return houseRepository.findByOwnerIdWithUser(ownerId).stream()
                 .map(this::convertToDTO)
                 .collect(Collectors.toList());
     }

@@ -20,7 +20,7 @@ public class BanService {
     private final UserRepository userRepository;
     
     public List<BanDTO> getAllBans() {
-        return banRepository.findAll().stream()
+        return banRepository.findAllWithUser().stream()
                 .map(this::convertToDTO)
                 .collect(Collectors.toList());
     }

@@ -7,6 +7,8 @@ A comprehensive User Control Panel (UCP) for managing a game server with role-ba
 - **[Quick Start Guide](QUICKSTART.md)** - Get up and running in 5 minutes
 - **[Deployment Guide](DEPLOYMENT.md)** - Production deployment instructions
 - **[Security Documentation](SECURITY.md)** - Security analysis and best practices
+- **[Performance Optimization](PERFORMANCE.md)** - Database tuning and optimization guide
+- **[Optimization Summary](OPTIMIZATION_SUMMARY.md)** - Performance improvements implemented
 
 ## Features
 

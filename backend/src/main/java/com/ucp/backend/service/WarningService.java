@@ -20,7 +20,7 @@ public class WarningService {
     private final UserRepository userRepository;
     
     public List<WarningDTO> getAllWarnings() {
-        return warningRepository.findAll().stream()
+        return warningRepository.findAllWithUser().stream()
                 .map(this::convertToDTO)
                 .collect(Collectors.toList());
     }
